@@ -1,4 +1,4 @@
-import { NotepadList } from "./components/NotepadList";
+import { NotepadList } from "../components/NotepadList";
 
 export function Home() {
   return (

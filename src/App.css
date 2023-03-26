@@ -2,3 +2,8 @@ body {
   background-color: #ffeaa7;
   margin-top: 0;
 }
+
+.bar {
+  display: flex;
+  position: fixed;
+}

@@ -11,10 +11,10 @@ export function NotepadList() {
       {notepads.map((notepadAtual) => {
         return (
           <li key={notepadAtual.id}>
-            <h2 className="font-bold text-lg px-12 py-2 hover:text-zinc-300">
+            <h2 className="font-bold text-lg pt-12 px-12 py-2 hover:text-zinc-300 hover:cursor-pointer">
               {notepadAtual.title}
             </h2>
-            <p className="text-sm text-fuchsia-400 py-2 px-12">
+            <p className="text-sm text-fuchsia-400 py-0 px-12">
               {notepadAtual.subtitle}
             </p>
           </li>

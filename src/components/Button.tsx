@@ -6,7 +6,7 @@ type ButtonProps = {
 export function Button(props: ButtonProps) {
   return (
     <button
-      className="bg-orange-400 hover:bg-orange-800 text-white py-2 px-4 rounded-md uppercase font-bold text-sm shadow-lg"
+      className="mt-14 flex bg-gray-500 hover:bg-gray-300 py-2 margin-[50px] text-white mx-24 px-4 rounded-md uppercase font-bold text-sm shadow-lg"
       onClick={props.onClick}
     >
       {props.children}

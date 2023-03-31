@@ -1,9 +1,4 @@
 body {
-  background-color: #ffeaa7;
+  background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
   margin-top: 0;
-}
-
-.bar {
-  display: flex;
-  position: fixed;
 }

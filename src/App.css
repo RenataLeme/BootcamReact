@@ -2,3 +2,9 @@ body {
   background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
   margin-top: 0;
 }
+
+.buttons-align {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}

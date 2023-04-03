@@ -2,8 +2,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { api } from "../api";
 import ButtonDelete from "../components/ButtonDelete";
+import { EditLinkButton } from "../components/EditLinkButton";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import toast from "react-simple-toasts";
-import { Breadcrumbs } from "../components/BreadCrumbs";
 
 export function ViewNotepad() {
   const params = useParams();
@@ -37,22 +38,32 @@ export function ViewNotepad() {
       <span className="text-base pt-4">{notepad.content}</span>
 
       <div className="mt-20 px-40 md:px-[530px]">
-        <Breadcrumbs links={["/", "/publicacoes/${params.id}"]} />
-        <ButtonDelete
-          onClick={async () => {
-            const res = await api.delete(`/notepads/${params.id}`);
-            const deleteNotepadResponse = res.data;
+        <Breadcrumbs
+          links={[
+            { title: "Página inicial", link: "/" },
+            { title: notepad.title, link: `/publicacoes/${params.id}` },
+          ]}
+        />
+        <div className="flex flex-row mt-6 gap-3 mx-[-20px]">
+          <EditLinkButton to={`/publicacoes/editar/${params.idSS}`}>
+            Editar
+          </EditLinkButton>
+          <ButtonDelete
+            onClick={async () => {
+              const res = await api.delete(`/notepads/${params.id}`);
+              const deleteNotepadResponse = res.data;
 
-            if (deleteNotepadResponse.success) {
-              toast("Item deletado com sucesso");
-              navigate("/");
-            } else {
-              toast("Erro ao deletar o ítem");
-            }
-          }}
-        >
-          Deletar
-        </ButtonDelete>
+              if (deleteNotepadResponse.success) {
+                toast("Item deletado com sucesso");
+                navigate("/");
+              } else {
+                toast("Erro ao deletar o ítem");
+              }
+            }}
+          >
+            Deletar
+          </ButtonDelete>
+        </div>
       </div>
     </div>
   );

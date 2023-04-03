@@ -6,6 +6,7 @@ import { Home } from "./routes/Home";
 import { CreateNotpad } from "./routes/CreateNotepad";
 import { ViewNotepad } from "./routes/ViewNotepad";
 import { Layout } from "./components/layouts";
+import { EditNotepad } from "./routes/EditNotepad";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/criar-notepad" element={<CreateNotpad />} />
           <Route path="/publicacoes/:id" element={<ViewNotepad />} />
+          <Route path="/publicacoes/editar/:id" element={<EditNotepad />} />
         </Routes>
       </Layout>
     </BrowserRouter>

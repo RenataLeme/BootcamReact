@@ -26,7 +26,7 @@ export function ViewNotepad() {
 
   return (
     <div className="flex flex-col w-[400px] h-[300px] shadow-2xl  px-9 py-4 bg-[#68767d] rounded-md mt-[60px] mb-18 mx-12 max-w-screen-md md:w-[1000px] md:mx-20 md:m-4 text-start">
-      <span className="pb-0 text-gray-700">{notepad.id}</span>
+      <span className="pb-0 text-gray-700">#{notepad.id}</span>
       <time
         className="font-bold pb-4 text-gray-700"
         dateTime={notepad.created_at}
@@ -36,33 +36,34 @@ export function ViewNotepad() {
       <h1 className="font-bold text-2xl">{notepad.title}</h1>
       <p className="text-lg ">{notepad.subtitle}</p>
       <span className="text-base pt-4">{notepad.content}</span>
+      <div>
+        <div className="py-20 px-40 md:px-[530px]">
+          <Breadcrumbs
+            links={[
+              { title: "Página inicial", link: "/" },
+              { title: notepad.title, link: `/publicacoes/${params.id}` },
+            ]}
+          />
+          <div className="flex flex-row mt-6 gap-3 mx-[-30px]">
+            <EditLinkButton to={`/publicacoes/editar/${params.id}`}>
+              Editar
+            </EditLinkButton>
+            <ButtonDelete
+              onClick={async () => {
+                const res = await api.delete(`/notepads/${params.id}`);
+                const deleteNotepadResponse = res.data;
 
-      <div className="mt-20 px-40 md:px-[530px]">
-        <Breadcrumbs
-          links={[
-            { title: "Página inicial", link: "/" },
-            { title: notepad.title, link: `/publicacoes/${params.id}` },
-          ]}
-        />
-        <div className="flex flex-row mt-6 gap-3 mx-[-20px]">
-          <EditLinkButton to={`/publicacoes/editar/${params.idSS}`}>
-            Editar
-          </EditLinkButton>
-          <ButtonDelete
-            onClick={async () => {
-              const res = await api.delete(`/notepads/${params.id}`);
-              const deleteNotepadResponse = res.data;
-
-              if (deleteNotepadResponse.success) {
-                toast("Item deletado com sucesso");
-                navigate("/");
-              } else {
-                toast("Erro ao deletar o ítem");
-              }
-            }}
-          >
-            Deletar
-          </ButtonDelete>
+                if (deleteNotepadResponse.success) {
+                  toast("Item deletado com sucesso");
+                  navigate("/");
+                } else {
+                  toast("Erro ao deletar o ítem");
+                }
+              }}
+            >
+              Deletar
+            </ButtonDelete>
+          </div>
         </div>
       </div>
     </div>

@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { TextField } from "../components/TextField";
 import { TextArea } from "../components/TextArea";
+import { api } from "../api";
+import toast from "react-simple-toasts";
+import { useNavigate } from "react-router-dom";
+
+const initialCreateNotepad = {
+  title: "",
+  subtitle: "",
+  content: "",
+};
 
 export function CreateNotpad() {
-  const [titulo, setTitulo] = useState("");
-  const [subtitulo, setSubtitulo] = useState("");
-  const [conteudo, setConteudo] = useState("");
+  const navigate = useNavigate();
+  const [form, setForm] = useState(initialCreateNotepad);
 
   return (
     <div>
@@ -15,25 +23,31 @@ export function CreateNotpad() {
       <form
         className="flex flex-col gap-1 max-w-md md:mx-auto md:max-w-lg"
         noValidate
-        onSubmit={(event) => {
+        onSubmit={async (event) => {
           event.preventDefault();
-          alert("NotPad enviado");
+          const response = await api.post("/notepads", form);
+          if (response.data.success) {
+            toast("Notepad criado com sucesso");
+            navigate("/");
+          } else {
+            toast("Erro na criação de notepad");
+          }
         }}
       >
         <TextField
           placeholder="Digite o título"
-          value={titulo}
-          onChange={(titulo) => setTitulo(titulo)}
+          value={form.title}
+          onChange={(title) => setForm({ ...form, title })}
         />
         <TextField
           placeholder="Digite o subtítulo"
-          value={subtitulo}
-          onChange={(subtitulo) => setSubtitulo(subtitulo)}
+          value={form.subtitle}
+          onChange={(subtitle) => setForm({ ...form, subtitle })}
         />
         <TextArea
           placeholder="Digite o conteúdo"
-          value={conteudo}
-          onChange={(conteudo) => setConteudo(conteudo)}
+          value={form.content}
+          onChange={(content) => setForm({ ...form, content })}
         />
         <button
           type="submit"

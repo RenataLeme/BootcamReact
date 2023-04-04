@@ -13,7 +13,7 @@ export type NotepadListProps = {
 
 export function NotepadList({ notepads }: NotepadListProps) {
   return (
-    <div className="flex flex-col w-[280px] bg-[#68767d] rounded-md mt-[60px] mb-18 mx-12 shadow-2xl max-w-screen-md md:w-[1000px] md:mx-20 md:m-4 text-start">
+    <div className="flex flex-col w-[280px] bg-[#68767d] rounded-md mt-[40px] mb-18 mx-12 shadow-2xl max-w-screen-md md:w-[1000px] md:mx-20 md:m-4 text-start">
       {notepads.map((notepadAtual) => {
         return (
           <Link to={`/publicacoes/${notepadAtual.id}`} key={notepadAtual.id}>

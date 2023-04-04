@@ -13,7 +13,7 @@ export function Breadcrumbs({ links }: BreadcrambsProps) {
           <Link
             key={index}
             to={link}
-            className="text-sm text-zinc-900 flex flex-row mt-14 mb-0"
+            className="text-sm text-zinc-900 flex flex-row mt-10 mb-0"
           >
             <MdTrendingFlat size="24px" />
             {title}

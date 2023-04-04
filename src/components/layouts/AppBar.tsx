@@ -19,7 +19,7 @@ export function AppBar() {
       >
         NotePad
       </div> */}
-      <div className="mr-6">
+      <div className="mr-2">
         <LinkButton to="/criar-notepad">Criar NotePad</LinkButton>
       </div>
     </header>

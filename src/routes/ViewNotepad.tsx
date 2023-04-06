@@ -25,7 +25,7 @@ export function ViewNotepad() {
   }, []);
 
   return (
-    <div className="flex flex-col w-[400px] h-[360px] shadow-2xl px-9 py-4 bg-[#68767d] rounded-md mt-[20px] mb-18 mx-12 max-w-screen-md md:w-[1000px] md:mx-20 md:m-4 text-start">
+    <div className="flex flex-col w-[340px] h-[360px] shadow-2xl px-9 py-4 bg-[#68767d] rounded-md mt-[20px] mb-18 mx-12 max-w-screen-md md:w-[1000px] md:mx-20 md:m-4 text-start">
       <span className="pb-0 text-gray-700">#{notepad.id}</span>
       <time
         className="font-bold pb-4 text-gray-700"
@@ -37,7 +37,7 @@ export function ViewNotepad() {
       <p className="text-lg ">{notepad.subtitle}</p>
       <span className="text-base pt-4">{notepad.content}</span>
       <div>
-        <div className=" px-10 md:px-[400px] md:pt-30">
+        <div className=" px-[-30] md:px-[400px] md:pt-30">
           <Breadcrumbs
             links={[
               { title: "Página inicial", link: "/" },

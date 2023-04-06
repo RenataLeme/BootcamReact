@@ -29,7 +29,7 @@ export function EditNotepad() {
 
   return (
     <div>
-      <h1 className="flex justify-center mt-10 mb-6 font-bold text-2xl from-neutral-800 md:mb-8 md:mt-8">
+      <h1 className="flex justify-center mt-10 mb-6 font-bold text-2xl from-neutral-800 md:mb-8 md:mt-8 md:ml-0 md:pl-0">
         Editar Notpad
       </h1>
 
